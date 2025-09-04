@@ -1,0 +1,13 @@
+const int LDR = A1;             // Pino analógico que o sensor está conectado
+int valorsensor ;               // valor que sera armazenado o valor do LDR
+void setup() {
+  pinMode(LDR, INPUT);          // Coloca a variavel LDR como entrada
+  Serial.begin(9600);           // inicializa a comunicação serial com a taxa de 9600 bps
+}
+
+void loop() {
+  valorsensor = analogRead(LDR); // Faz a leitura do pino analógico LDR e armazena o valor na variavel valorsensor
+  Serial.print("LDR : " );      // Mostra o valor no monitor serial
+  Serial.println(valorsensor);
+  delay(600);                // Aguarda 100 milisegundos
+}
