@@ -1,0 +1,15 @@
+#define pinorele 9 // pino em que o relé será conectado
+#define pinosom 8 // pino em que o sensor de som será conectado
+bool rele;
+void setup() {
+  pinMode(pinorele,OUTPUT); //Define o pino do relé como saída
+  pinMode(pinosom,INPUT); //Define o pino do sensor de som como entrada
+  rele=false; // A variável rele recebe falso
+  digitalWrite(pinorele, rele); //Escreve no pino digital do relé falso 
+}
+void loop() {
+ if(digitalRead(pinosom)==HIGH){ //Lê o pino do sensor de som
+   rele=!rele;
+ }
+ digitalWrite(pinorele,rele); //Escreve no pino do rele
+}
