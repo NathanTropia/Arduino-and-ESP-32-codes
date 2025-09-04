@@ -1,0 +1,29 @@
+#define push_bot 2
+#define led_verde 4
+bool estado = 0;
+
+void setup()
+{
+  pinMode(push_bot, INPUT_PULLUP);
+  pinMode(led_verde, OUTPUT);
+  Serial.begin(9600);
+  delay(100);
+  
+}
+
+void loop()
+{
+  estado = digitalRead(push_bot);
+  Serial.println(estado);
+  if (estado == LOW)
+  {
+    digitalWrite(led_verde, HIGH);  // LED liga quando botão pressionado
+    Serial.println("led ligado");
+  }
+  else
+  {
+    digitalWrite(led_verde, LOW);   // LED desliga quando botão solto
+    Serial.println("led desligado");
+  }
+  delay(100);
+}
